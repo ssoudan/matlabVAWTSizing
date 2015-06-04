@@ -22,7 +22,7 @@ iaf.designation=nacaProfileName;
 iaf.n=60;
 iaf.HalfCosineSpacing=1;
 iaf.wantFile=0;
-iaf.datFilePath=['./', nacaProfileName]; % Current folder
+iaf.datFilePath=nacaProfileName; 
 iaf.is_finiteTE=0;
 
 af = naca4gen(iaf);
@@ -67,7 +67,7 @@ data
 
 %% write data to a file that can be used by VAWTAnalysis package
 
-filename = sprintf('%s/naca%s-%f.csv', nacaProfileName, nacaProfileName, Re)
+filename = sprintf(['%s' filesep 'naca%s-%f.csv'], nacaProfileName, nacaProfileName, Re)
 fid = fopen(filename, 'w')
 fprintf(fid, '%s\n"AoA (deg)","t (s)","Cd","Cl"\n', nacaProfileName)
 fprintf(fid,'%6.2f,%6.2f,%12.8f,%12.8f\n', data');

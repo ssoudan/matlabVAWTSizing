@@ -21,9 +21,9 @@ function desc = simulateVAWT(nacaprofileName, Re, P, V, AR, Nb, sigma)
 % Licensed under the Apache License, Version 2.0 (the "License");
 
 %% Add stuffs to path
-addpath('~/Documents/MATLAB/VAWTanalysis/')
-addpath('~/Documents/MATLAB/naca4gen/')
-addpath('~/Documents/MATLAB/xfoil/')
+addpath([userpath filesep 'VAWTanalysis'])
+addpath([userpath filesep 'naca4gen'])
+addpath([userpath filesep 'xfoil'])
 
 %% Constants
 vawtDescription.rho = 1.2;      % density of air (kg/m^3)
@@ -46,7 +46,7 @@ vawtDescription.sigma = sigma   % solidity ratio Nb * C / R
 
 %% Computed values
 
-profileDataFilename = sprintf('%s/naca%s-%f.csv', vawtDescription.nacaProfileName, vawtDescription.nacaProfileName, Re)
+profileDataFilename = sprintf(['%s' filesep 'naca%s-%f.csv'], vawtDescription.nacaProfileName, vawtDescription.nacaProfileName, Re)
 if exist(profileDataFilename) ~= 2
     vawtAirfoilProfile(vawtDescription.nacaProfileName, Re)
 end
