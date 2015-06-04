@@ -40,7 +40,7 @@ X=nacaProfile(:,1);
 Y=nacaProfile(:,2);
 
 data = [];
-for alpha=alphaMin:alphaStep:alphaMax
+parfor alpha=alphaMin:alphaStep:alphaMax
     
     [p]=xfoil(X,Y,alpha,Re,MACH);
     
@@ -50,6 +50,8 @@ for alpha=alphaMin:alphaStep:alphaMax
     
     data = [data ; [alpha 0 CD CL]]
 end
+
+data = sort(data, 1)
 
 %% plot the Cd and Cl as a function of alpha (the angle of attack)
 

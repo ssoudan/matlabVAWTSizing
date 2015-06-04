@@ -21,9 +21,11 @@ function desc = simulateVAWT(nacaprofileName, Re, P, V, AR, Nb, sigma)
 % Licensed under the Apache License, Version 2.0 (the "License");
 
 %% Add stuffs to path
-addpath([userpath filesep 'VAWTanalysis'])
-addpath([userpath filesep 'naca4gen'])
-addpath([userpath filesep 'xfoil'])
+userdir = userpath
+userdir = userdir(1:end-1)
+addpath([userdir filesep 'VAWTanalysis'])
+addpath([userdir filesep 'naca4gen'])
+addpath([userdir filesep 'xfoil'])
 
 %% Constants
 vawtDescription.rho = 1.2;      % density of air (kg/m^3)
@@ -109,15 +111,20 @@ vawtDescription.solution.tho = vawtDescription.P / (vawtDescription.solution.lam
 %%% Vawt simulation
 vawtDescription.solution.vawt = vawt;
 
-
 %%% Power function
 windRange = (0:(vawtDescription.V/5):(4*vawtDescription.V))';
 
 vawtDescription.solution.powerFunction = [windRange (vawtDescription.solution.CpMax * vawtDescription.solution.R * vawtDescription.solution.h * vawtDescription.rho * windRange.^3)];
 
+%%% Maximum power of a pure-drag vawt of the same size
+vawtDescription.solution.pureDragPowerFunction = [windRange (0.36 * vawtDescription.solution.R * vawtDescription.solution.h * windRange.^3)];
+
 % plot the power as a function of wind speed
 figure;
 plot(vawtDescription.solution.powerFunction(:,1), vawtDescription.solution.powerFunction(:,2))
+hold on 
+plot(vawtDescription.solution.pureDragPowerFunction(:,1), vawtDescription.solution.pureDragPowerFunction(:,2))
+legend('current vawt', 'size-equivalent pure-drag vawt')
 xlabel('wind speed (m/s)')
 ylabel('power (W)')
 
