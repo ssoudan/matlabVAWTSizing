@@ -12,7 +12,7 @@ function data = vawtPowerCoefficient(nacaProfileName, Re)
 
 alphaMin=0
 alphaStep=1
-alphaMax=20
+alphaMax=30
 
 MACH=0
 
@@ -68,8 +68,8 @@ ylabel('Cl')
 data
 
 %% write data to a file that can be used by VAWTAnalysis package
-
-filename = sprintf(['%s' filesep 'naca%s-%f.csv'], nacaProfileName, nacaProfileName, Re)
+mkdir(nacaProfileName)
+filename = [nacaProfileName filesep sprintf('naca%s-%f.csv', nacaProfileName, Re)]
 fid = fopen(filename, 'w')
 fprintf(fid, '%s\n"AoA (deg)","t (s)","Cd","Cl"\n', nacaProfileName)
 fprintf(fid,'%6.2f,%6.2f,%12.8f,%12.8f\n', data');

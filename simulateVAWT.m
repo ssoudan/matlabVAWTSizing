@@ -48,7 +48,7 @@ vawtDescription.sigma = sigma   % solidity ratio Nb * C / R
 
 %% Computed values
 
-profileDataFilename = sprintf(['%s' filesep 'naca%s-%f.csv'], vawtDescription.nacaProfileName, vawtDescription.nacaProfileName, Re)
+profileDataFilename = [ vawtDescription.nacaProfileName filesep sprintf('naca%s-%f.csv', vawtDescription.nacaProfileName, Re)]
 if exist(profileDataFilename) ~= 2
     vawtAirfoilProfile(vawtDescription.nacaProfileName, Re)
 end
