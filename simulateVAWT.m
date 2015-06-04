@@ -103,7 +103,7 @@ vawtDescription.solution.h = vawtDescription.AR * vawtDescription.solution.R;
 vawtDescription.solution.c = vawtDescription.sigma * vawtDescription.solution.R / vawtDescription.Nb;
 
 %%% And a rotational speed of (rpm)
-vawtDescription.solution.omegaRpm = vawtDescription.solution.lambdaCpMax * vawtDescription.V / (2 * pi * vawtDescription.solution.R) * 360;
+vawtDescription.solution.omegaRpm = 60 * vawtDescription.solution.lambdaCpMax * vawtDescription.V / (2 * pi * vawtDescription.solution.R);
 
 %%% Torque (N.m)
 vawtDescription.solution.tho = vawtDescription.P / (vawtDescription.solution.lambdaCpMax * vawtDescription.V / vawtDescription.solution.R);
@@ -118,6 +118,10 @@ vawtDescription.solution.powerFunction = [windRange (vawtDescription.solution.Cp
 
 %%% Maximum power of a pure-drag vawt of the same size
 vawtDescription.solution.pureDragPowerFunction = [windRange (0.36 * vawtDescription.solution.R * vawtDescription.solution.h * windRange.^3)];
+
+vawtDescription.solution.pureDragOmegaRpm = vawtDescription.V * 60 / (2 * pi * vawtDescription.solution.R)
+
+vawtDescription.solution.pureDragTorque = (0.36 * vawtDescription.solution.R * vawtDescription.solution.h * vawtDescription.V^3) / (vawtDescription.V / (vawtDescription.solution.R))
 
 % plot the power as a function of wind speed
 figure;
