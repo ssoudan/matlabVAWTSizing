@@ -1,9 +1,11 @@
 
-= vawtSimulation =
+=matlabVAWTSizing=
+
+<sebastien.soudan@gmail.com>
 
 Disclaimer: There is no guarantee the results of the simulation are by any mean close to something. 
 
-== Description ==
+==Description==
 This is inspired from Design of a vertical-axis wind turbine: how the aspect ratio affects the turbine's performance, S. Brusca and R. Lanzafame and M. Messina, Int. J. Energy Environ. Eng., 2014 - DOI 10.1007/s40095-014-0129-x
 
 You'll need few other matlab packages to use this code:
@@ -18,16 +20,16 @@ These packages are expected to be in your PATH (or ~/Documents/MATLAB/... on OS 
 Note: you might have to increase p.itermax in xfoil.m to reach a convergence for some angle of attack under (pretty) low Reynolds number.
 
 ```matlab
->>> help simulateVAWT
-  simulateVAWT is a single step of VAWT parameter optimisation procedure.
- 
-  desc = simulateVAWT(Re, P, V, AR, Nb, sigma)
-  single step of VAWT size optimisation according to `Design of a vertical-axis wind turbine: how the aspect ratio
-  affects the turbine's performance, S. Brusca and R. Lanzafame and M.
-  Messina, Int. J. Energey Environ. Eng.`, 2014
- 
-  If desc.done is not 1, you should run another step with desc.EstimatedRe
-  as input Reynolds number.
+>> help simulateVAWT
+    simulateVAWT is a single step of VAWT parameter optimisation procedure.
+  
+    desc = simulateVAWT(Re, P, V, AR, Nb, sigma)
+    single step of VAWT size optimisation according to `Design of a vertical-axis wind turbine: how the aspect ratio
+    affects the turbine's performance, S. Brusca and R. Lanzafame and M.
+    Messina, Int. J. Energey Environ. Eng.`, 2014
+
+    If desc.done is not 1, you should run another step with desc.EstimatedRe
+    as input Reynolds number.
 
 >> vawt = simulateVAWT('0018', 1.8e5, 100, 5, 0.5, 4, 0.4)
     ...
@@ -59,7 +61,6 @@ Note: you might have to increase p.itermax in xfoil.m to reach a convergence for
     powerFunction: [21x2 double]
       EstimatedRe: 1.8321e+05
              done: 1
->> 
 ```
 
 If Cd/Cl as a function of the angle of attack for a given Reynolds and profile is not available to `simulateVAWT`, it will computed with `vawtAirfoilProfile` and stored in a file for later use.
@@ -70,7 +71,7 @@ From there it's easy to add a while-loop until 'done' flag becomes true but ther
 
 That said, have fun.
 
-== License ==
+==License==
 
 Copyright 2015 Sebastien Soudan 
  
