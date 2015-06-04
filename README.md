@@ -1,11 +1,11 @@
 
-=matlabVAWTSizing=
+#matlabVAWTSizing
 
 <sebastien.soudan@gmail.com>
 
 Disclaimer: There is no guarantee the results of the simulation are by any mean close to something. 
 
-==Description==
+##Description
 This is inspired from Design of a vertical-axis wind turbine: how the aspect ratio affects the turbine's performance, S. Brusca and R. Lanzafame and M. Messina, Int. J. Energy Environ. Eng., 2014 - DOI 10.1007/s40095-014-0129-x
 
 You'll need few other matlab packages to use this code:
@@ -71,7 +71,7 @@ From there it's easy to add a while-loop until 'done' flag becomes true but ther
 
 That said, have fun.
 
-==License==
+##License
 
 Copyright 2015 Sebastien Soudan 
  
