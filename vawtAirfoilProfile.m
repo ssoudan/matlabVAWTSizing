@@ -1,5 +1,5 @@
 function data = vawtPowerCoefficient(nacaProfileName, Re)
-% vawtPowerCoefficient compute the drag and lift coefficient of a 4-digit
+% vawtPowerCoefficient Computes the drag and lift coefficient of a 4-digit
 % naca profile for a range of angle of attack
 %
 % cp = vawtPowerCoefficient(nacaProfile, Re, sigma)

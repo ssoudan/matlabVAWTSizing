@@ -1,5 +1,5 @@
 function desc = simulateVAWT(nacaprofileName, Re, P, V, AR, Nb, sigma)
-% simulateVAWT is a single step of VAWT parameter optimisation procedure.
+% simulateVAWT Single step of VAWT parameter optimisation procedure.
 %
 % desc = simulateVAWT(nacaprofileName, Re, P, V, AR, Nb, sigma)
 % single step of VAWT size optimisation according to `Design of a vertical-axis wind turbine: how the aspect ratio
@@ -123,7 +123,7 @@ vawtDescription.solution.pureDragOmegaRpm = vawtDescription.V * 60 / (2 * pi * v
 
 vawtDescription.solution.pureDragTorque = (0.36 * vawtDescription.solution.R * vawtDescription.solution.h * vawtDescription.V^3) / (vawtDescription.V / (vawtDescription.solution.R))
 
-% plot the power as a function of wind speed
+%%% Plot the power as a function of wind speed
 figure;
 plot(vawtDescription.solution.powerFunction(:,1), vawtDescription.solution.powerFunction(:,2))
 hold on 
