@@ -108,6 +108,9 @@ vawtDescription.solution.omegaRpm = 60 * vawtDescription.solution.lambdaCpMax * 
 %%% Torque (N.m)
 vawtDescription.solution.tho = vawtDescription.P / (vawtDescription.solution.lambdaCpMax * vawtDescription.V / vawtDescription.solution.R);
 
+%%% Torque at 2000 rpm (N.m)
+vawtDescription.solution.thoAt2000rpm = vawtDescription.solution.tho * vawtDescription.solution.omegaRpm / 2000
+
 %%% Vawt simulation
 vawtDescription.solution.vawt = vawt;
 
