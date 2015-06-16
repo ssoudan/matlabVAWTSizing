@@ -39,8 +39,8 @@ vawtDescription.P = P           % target power (W)
 vawtDescription.V = V           % wind speed (m/s)
 vawtDescription.AR = AR         % aspect ratio h/R -- lower AR gives higher efficiency
 
-vawtDescription.lambdaMin = 0.5 % TSR range spec
-vawtDescription.lambdaStep = 0.5
+vawtDescription.lambdaMin = 1.5 % TSR range spec
+vawtDescription.lambdaStep = 0.1
 vawtDescription.lambdaMax = 6
 
 vawtDescription.Nb = Nb         % number of blades
@@ -128,9 +128,9 @@ vawtDescription.solution.pureDragTorque = (0.36 * vawtDescription.solution.R * v
 
 %%% Plot the power as a function of wind speed
 figure;
-plot(vawtDescription.solution.powerFunction(:,1), vawtDescription.solution.powerFunction(:,2))
+plot(vawtDescription.solution.powerFunction(:,1), vawtDescription.solution.powerFunction(:,2), 'r-')
 hold on 
-plot(vawtDescription.solution.pureDragPowerFunction(:,1), vawtDescription.solution.pureDragPowerFunction(:,2))
+plot(vawtDescription.solution.pureDragPowerFunction(:,1), vawtDescription.solution.pureDragPowerFunction(:,2), 'g-')
 legend('current vawt', 'size-equivalent pure-drag vawt')
 xlabel('wind speed (m/s)')
 ylabel('power (W)')
